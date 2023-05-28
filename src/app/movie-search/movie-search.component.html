@@ -1,0 +1,17 @@
+
+<div class="search-container">
+    <input [(ngModel)]="query" placeholder="Search movies" />
+    <button (click)="searchMovies()">Search</button>
+  </div>
+  
+  <div class="movies-container">
+    <div *ngIf="isLoading" class="loading">Loading...</div>
+    <div *ngIf="movies.length === 0 && !isLoading" class="no-results">No results found.</div>
+    <div *ngFor="let movie of movies" class="movie-card">
+      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }} Poster" />
+      <h3>{{ movie.title }}</h3>
+      <p>{{ movie.release_date }}</p>
+    </div>
+  </div>
+  
+  
